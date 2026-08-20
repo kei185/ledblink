@@ -1,3 +1,6 @@
+PORT:=$(shell ls /dev/tty.usb*) 
+
+.PHONY: init build screen
 
 init:
 	cmake --preset Debug
@@ -8,3 +11,6 @@ build:
 release:
 	cmake --preset Release
 	cmake --build  --preset Release
+
+screen:
+	screen $(PORT) 115200
